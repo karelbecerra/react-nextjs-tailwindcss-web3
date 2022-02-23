@@ -5,10 +5,11 @@ import { Logo } from '../Logo';
 
 const Navbar = () => {
 
-  const { connected, setConnected } = useState();
+  const [connected, setConnected] = useState(false);
 
   const handleConnect = e => {
     e.preventDefault();
+    setConnected(!connected)
   };
 
   return (
