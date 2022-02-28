@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Link from 'next/link';
 
 import { Logo } from '../Logo';
+import { useConnected } from '../../hooks/useConnected';
 
 const Navbar = () => {
 
-  const [connected, setConnected] = useState(false);
+  const [isConnected, setIsConnected] = useConnected();
 
   const handleConnect = e => {
     e.preventDefault();
-    setConnected(!connected)
+    setIsConnected(!isConnected);
   };
 
   return (
@@ -24,7 +25,7 @@ const Navbar = () => {
           <div className="rounded-md shadow">
             <a href="#" className="primary-btn h-10"
                   onClick={handleConnect}>
-                  { connected ? 'Logout' : 'Connect' }
+                  { isConnected ? 'Logout' : 'Connect' }
             </a>
           </div>
         </div>     
